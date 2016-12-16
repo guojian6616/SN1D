@@ -60,7 +60,7 @@ public:
 
 	void setQuadrature(Quadrature* quad);
 
-	void startIteration();
+	void run();
 
 	void InitializeFlux();
 	void InitializeSource();
@@ -145,7 +145,7 @@ void Solver::setQuadrature(Quadrature* quad) {
 	_quadrature = quad;
 }
 
-void Solver::startIteration() {
+void Solver::run() {
 	int num = 0;
 	_keff = 1.0;
 	InitializeFlux();
@@ -174,6 +174,7 @@ void Solver::startIteration() {
 		// std::cout << "# " << num << '\t' << "Keff = " << _keff << std::endl;
 		printf("# %5d\tKeff = %lf10.6\n", num, _keff);
 	}
+	/* normalize the scalar flux to the maximum scalar flux in the center */
 	for (int i=1; i<_mesh; i++)
 	{
 		_scalar_flux[i] /= _scalar_flux[0];

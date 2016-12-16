@@ -1,5 +1,7 @@
 CFLAGS =
 
+PROGRAM=sn
+
 # options
 DEBUG = yes
 WARNING = yes
@@ -15,12 +17,12 @@ endif
 
 all: main.cpp Solver.h Quadrature.h
 	g++ $(CFLAGS) -c main.cpp
-	g++ main.o -o tt
+	g++ main.o -o $(PROGRAM)
 
 .PHONY: clean
 clean:
-	rm -rf tt main.o
+	rm -rf $(PROGRAM) main.o
 
 .PHONY: run
 run:
-	./tt
+	./$(PROGRAM)

@@ -86,4 +86,4 @@ double Quadrature::getWeight(int d) {
 	return _w[d];
 }
 
-#endif
+#endif /* QUADRATURE_H_ */
